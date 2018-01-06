@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<base href="${request.contextPath+'/'}">
+<title>home</title>
+</head>
+<body>
+	<@shiro.authenticated>
+		<a href="user/index.html">user</a>
+	</@shiro.authenticated> 
+	
+	<@shiro.hasRole name="admin">
+		<a href="admin/index.html">admin</a>
+	</@shiro.hasRole> 
+	
+	<@shiro.authenticated>
+		<a href="user/logout">logout</a>
+	</@shiro.authenticated> 
+	
+	<@shiro.guest>
+		<a href="login.html">login</a>
+	</@shiro.guest>
+	
+	<@shiro.guest>
+		<a href="register.html">register</a>
+	</@shiro.guest>
+	
+</body>
+</html>
